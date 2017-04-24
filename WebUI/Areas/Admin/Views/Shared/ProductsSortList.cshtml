@@ -1,0 +1,95 @@
+﻿@model List<Model.ViewModel.ProductsSort>
+
+
+
+<h6>产品二级分类管理</h6>
+<style>
+    #tree ul {
+        list-style: none;
+    }
+
+        #tree ul li {
+            cursor: pointer;
+        }
+
+            #tree ul li a {
+                /*display: block;*/
+                text-decoration: none;
+            }
+
+            #tree ul li ul {
+                display: none;
+                padding-left: 23px;
+            }
+
+
+    #tree .active {
+        color: red;
+    }
+
+    #tree .open > a {
+        color: red;
+    }
+</style>
+<div id="tree" class="well">
+    <ul>
+        @foreach (var g in Model)
+        {
+            <li>
+                <a><i class="iconfont text-info">&#xe68f;</i>@g.ProductsSortName</a><input class="pull-right" id="@g.ProductsSortID" type=text /><span class="pull-right" onclick="Add_GoodsSort(@g.ProductsSortID)">增加二级分类</span>
+                <ul>
+                    @foreach (var g2 in g.nodes)
+                    {
+                        <li><i class="iconfont text-info">&#xe62a;</i>@g2.GoodsSortName</li> }
+
+
+                </ul>
+            </li>
+
+        }
+
+    </ul>
+
+</div>
+
+<script>
+   
+    $('#tree li>a').click(function (event) {
+        /* Act on the event */
+        if ($(this).parent('li').find('ul').length > 0) {
+            if ($(this).siblings('ul').is(':hidden')) {
+                $(this).parent('li').addClass('open').children('ul').show();
+                $(this).parent('li').siblings().removeClass('open').children('ul').hide();
+            } else {
+                $(this).parent('li').removeClass('open').children('ul').hide();
+            }
+        } else {
+            $(this).parent('li').siblings().removeClass('open');
+        }
+        $(this).parent('li').siblings().children('ul').hide();
+        $(this).addClass('active').parent('li').siblings('li').find('a').removeClass('active');
+    })
+    function Add_GoodsSort(ProductsSortID)
+    {
+
+        
+        if($("#"+ProductsSortID).val()!="")
+        {
+            $.ajax({
+                type: "POST",
+                url: "AdminProduct/GoodsSortAdd",
+                data: "ProductsSortID="+ProductsSortID+"&GoodsSortName="+$("#"+ProductsSortID).val(),
+
+                success: function(html){
+                    if(html=="ok")
+                        $("#ProductsSortList").load("AdminProduct/ProductsSortList");
+                }
+            });
+        }
+        else
+        {
+            alert("不能输入空！");
+        }
+        //$('#myModal_GoodsSortAdd').modal('show')
+    }
+</script>

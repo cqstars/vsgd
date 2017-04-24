@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "管理后台";
+}
+
+<div class="container">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#AdminUser" role="tab" data-toggle="tab">用户管理</a></li>
+        <li role="presentation"><a href="#AdminProduct" role="tab" data-toggle="tab">产品管理</a></li>
+        <li role="presentation"><a href="#AddGoods" role="tab" data-toggle="tab">添加产品</a></li>
+        <li role="presentation"><a href="#ModifyGood" role="tab" data-toggle="tab">修改完善产品</a></li>
+        <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">权限管理</a></li>
+        <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">后台管理</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="AdminUser">用户</div>
+        <div role="tabpanel" class="tab-pane" id="AdminProduct">@{Html.RenderPartial("AdminProduct");}</div>
+        <div role="tabpanel" class="tab-pane" id="AddGoods">@{Html.RenderPartial("Add_Goods");}</div>
+        <div role="tabpanel" class="tab-pane" id="ModifyGood">@{Html.RenderPartial("ModifyGood");}</div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    </div>
+</div>

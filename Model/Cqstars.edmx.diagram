@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69a40ae785174d6982266704a0334fe1" Name="Diagram1">
+        <EntityTypeShape EntityType="cqstarsModel.DepartMent" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.Good" Width="1.5" PointX="15.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.GoodsSort" Width="1.5" PointX="13" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.Permission" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.ProductsSort" Width="1.5" PointX="8.125" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.RolePermission" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.Role" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.UserDB" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.UserRole" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cqstarsModel.VipUserPermission" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="cqstarsModel.FK_RolePermissions_DepartMent" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_UserDB_DepartMent" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_Goods_GoodsSort" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_Goods_ProductsSort" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_GoodsSort_ProductsSort" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_RolePermissions_Permission" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_VipUserPermission_Permission" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.UserRole_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_UserDB_UserDB" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_UserRole_UserDB" ManuallyRouted="false" />
+        <AssociationConnector Association="cqstarsModel.FK_VipUserPermission_UserDB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "登录后";
+   
+}
+
+<div class="container">
+    @if (WebUI.Helper.OperateContext.Current.Usr!=null&&WebUI.Helper.OperateContext.Current.Usr.UserName == "peter") 
+    {
+       <div> 欢迎 @WebUI.Helper.OperateContext.Current.Usr.UserName 登录
+   </div>
+        <p>@Html.ActionLink("管理", "index", "AdminConsole")</p>
+    }
+</div>
+

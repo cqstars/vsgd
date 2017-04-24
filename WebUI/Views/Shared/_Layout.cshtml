@@ -1,0 +1,160 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @*<meta name="viewport" content="width=device-width" />*@
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="~/Scripts/html5shiv.min.js"></script>
+      <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/BootStarp/CSS")
+    @Scripts.Render("~/BootStrap/js")
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img alt="Brand" src="../../images/logo/logo.jpg" width="43" height="30"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="@Url.Action("Index", new { controller = "Home", Area = "" })"><i class="iconfont text-primary ">&#xe628;</i>首页</a></li>
+                    <li><a href="@Url.Action("CompanyBrife", new { controller = "Home", Area = "" })">公司简介</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品中心<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+
+
+                            @{Html.RenderAction("ProductsLink", "Home", new { area = "" });}
+
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="@Url.Action("Service", new { controller = "Home", Area = "" })">服务与支持</a>
+                    </li>
+                    @*<li >
+                        <a href="@Url.Action("CompanyBrife", new { controller = "Home", Area = "" })">公司新闻</a>
+                    </li>*@
+                    <li><a href="@Url.Action("Wanted", new { controller = "Home", Area = "" })">招聘</a></li>
+
+                </ul>
+
+
+                @using (Html.BeginForm(
+"InqueryRult", "Home",
+FormMethod.Get,
+new { name = "nbform", id = "nbform", @class = "navbar-form navbar-left", role = "search" }))
+                {
+                    <div class="form-group">
+                        @Html.TextBox("InqueryKeyWord","", new {placeholder="搜寻内容", @class = "form-control" })
+                        
+                    </div>
+                    <button type="submit" class="btn btn-default">搜寻</button>
+                }
+
+                <ul class="nav navbar-nav navbar-right" id="User">
+                    @{Html.RenderPartial("UserInfo");}
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="@Url.Action("login", new { controller = "AdminLogin", Area = "Admin" })"><i class="iconfont text-primary ">&#xe621;</i>注册</a></li>
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <section id="first">
+        <div class="container">
+            @RenderSection("BreadCrumb", required: false)
+
+        </div>
+    </section>
+    <section id="scond">
+
+
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+
+    </section>
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                </div>
+                <div class="col-md-6">
+                    <address>
+                        <strong>重庆高登办公设备有限公司</strong><br>
+
+                        <abbr title="Phone"><i class="iconfont text-danger">&#xe629;</i>联系人：王维川&nbsp;&nbsp;手机：13320236700</abbr><br><i class="iconfont text-info">&#xe618;</i>023-68690301 传真：023-68632077<br />
+                        <i class="iconfont text-danger">&#xe61a;</i>
+                        <a href="mailto:#">Cqstars@sina.com</a>
+                        <br />
+                        <i class="iconfont text-success">&#xe619;</i> 重庆九龙坡区重庆市石桥铺西部商城B14-10
+                    </address>
+
+
+                </div>
+                <div class="col-md-6">
+                    <!--底部导航-->
+                    <div class="row text-center">
+                        <ul class="list-inline">
+                            <li><a href="http://www.kyoceradocumentsolutions.com.cn/">京瓷</a></li>
+
+                            <li><a href="http://www.aurora.com.cn/ENT/web_cn/index.do">震旦</a></li>
+                            <li><a href="http://detail.zol.com.cn/manufacturer/index634.html">科美</a></li>
+
+                            <!--<li><a href="javascript{void(0)}"><i class="iconfont text-info">&#xe610;</i></a></li>
+                            <li><a href="javascript{void(0)}"><i class="iconfont text-danger">&#xe611;</i></a></li>
+                            <li><a href="javascript{void(0)}"><i class="iconfont text-primary">&#xe60f;</i></a></li>-->
+                            <li></li>
+                        </ul>
+
+
+                        <p>Copyright©&nbsp;&nbsp;All Rights Reserved&nbsp;&nbsp;<a href="http://www.cqgdbg.com/">高登办公</a></p>
+                        <p>渝ICP备16030667号-1</p>
+                        <!--<a href="javascript{void(0)}"></a>-->
+                    </div>
+                    <!--底部导航-->
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+</script>

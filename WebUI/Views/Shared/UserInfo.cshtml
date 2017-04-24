@@ -1,0 +1,25 @@
+﻿
+@if(WebUI.Helper.OperateContext.Current.Usr==null)
+
+{
+
+    <li><a href="@Url.Action("Login", new { controller = "AdminLogin", Area = "Admin" })"><i class="iconfont text-danger">&#xe627;</i>登录</a></li>
+
+
+
+}
+else
+{
+
+
+    <li><a href="#"><i class="iconfont text-danger">&#xe627;</i>@WebUI.Helper.OperateContext.Current.Usr.NickName</a></li>
+    @*<li><a href="@Url.Action("UserErase", new { controller = "AdminLogin", Area = "Admin" })">退出登录</a></li>*@
+    <li>@Html.ActionLink("管理", "index", new { controller = "AdminConsole",Area="Admin"})</li>
+    <li>@Ajax.ActionLink("退出登录", "UserErase", new { controller = "AdminLogin", Area = "Admin"}, new AjaxOptions() {  HttpMethod = "Post", Confirm = " 您确定要退出登录吗？", OnSuccess="SuccessEraseUser" })</li>
+}
+<script type="text/javascript">
+    function SuccessEraseUser(e)
+    {
+        $("#User").html(e);
+    }
+</script>

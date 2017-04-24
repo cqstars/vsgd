@@ -1,0 +1,328 @@
+﻿body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
+    font-family: Microsoft YaHei,'宋体', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+
+p {
+    text-indent: 2em;
+}
+
+h1, h3, p, a, button {
+    font-family: 'Microsoft YaHei';
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: #212121;
+    outline: none;
+}
+
+.current {
+    border-bottom: 2px solid #fc880a;
+    color: #ffffff;
+}
+
+
+/*icon*/
+.Myicon {
+    color: #ffa009;
+    margin-right: 20px;
+}
+.icon-folder-open {background:url(../images/ajax-loader.gif) center left no-repeat; width:15px; height:15px}
+.icon-minus-sign{background:url(../images/ajax-loader.gif) center left no-repeat; width:15px; height:15px}
+/*第一屏小米浏览器兼容*/
+#first {
+    /* height: 500px;
+    background: #808080;*/
+    margin-top: 70px;
+    
+}
+ #first .col-md-4 {
+        padding: 5px;
+    }
+
+#scond {
+    padding: 20px;
+}
+
+    #scond img {
+        margin: 0px auto;
+    }
+
+
+/*第一屏小米浏览器兼容*/
+/*覆盖navbar-default样式*/
+.navbar-default {
+    background-color:#ffffff;
+    border: none;
+    box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.35);
+}
+    .navbar-default .active {
+        background-color: #fc880a!important
+    }
+  
+.navbar-collapse {
+    max-height: 600px!important
+}
+
+
+#Main {
+    background: url("../images/home-bg.jpg");
+    background-size: cover;
+    color: #fff;
+    margin-top: 70px;
+}
+
+    #Main .col-md-3 {
+        padding: 15px;
+    }
+
+#Main {
+    text-align: center;
+}
+
+    #Main .row img {
+        margin: 0 auto;
+        border: 2px solid #fff;
+    }
+
+#Content {
+    padding: 20px 0;
+}
+/*-------------------------------轮播组件样式---------------------------*/
+#myCarousel .carousel-caption h5 {
+    color: #40d2b1;
+}
+
+
+.carousel {
+    /*height:500px;*/
+    margin-bottom: 20px;
+    background: #fff;
+    border: 2px solid #fff;
+}
+
+    .carousel .item {
+        /*height:500px;*/
+        background: #fff;
+    }
+
+    .carousel img {
+        width: 100%;
+    }
+/*-----------------------------轮播组件样式结束---------------------------------------*/
+
+
+#home_1 {
+    background: #2c303b url(../images/Company_brife/Company_bg.jpg) repeat-x;
+    /* background-size: cover;*/
+    color: #fff;
+    margin-top: 70px;
+    /* text-align: center;padding: 50px 0;
+    padding: 10px 0;*/
+    width: 100%;
+    border-bottom: 1px solid #c39c9c;
+}
+
+    #home_1 p {
+        line-height: 35px;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    #home_1 a {
+        color: #fff;
+    }
+
+    #home_1 img {
+        /*  margin-top:36px;
+         display: inline-block;
+        width: 100%;
+      border: 5px #fff solid;*/
+    }
+
+.lv {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    padding: 50px 0;
+}
+
+
+
+#Princple {
+    /*background: #e2f4f8;*/
+    padding: 20px 0px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+
+/*------------------------ProductsSort产品列表目录样式-----------*/
+#ProductsSort .panel-body {
+  padding:1px;
+}
+#ProductsSort .list-group {
+    margin:0px;
+}
+
+/*SG40*/
+#sg40 {
+    /* background: #f8f8f8;*/
+    padding: 40px 0;
+}
+
+#Module {
+    /*background: #f5d5c0;*/
+    padding: 40px 0;
+}
+
+#contact {
+    /*background: url("../images/Contact_bg.jpg") no-repeat;*/
+    background-size: cover;
+    color: #fff;
+}
+
+    #contact .form-control {
+        border: none;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    #contact textarea.form-control {
+        height: 100px;
+    }
+
+    #contact input[type="submit"] {
+        background: #40d2b1;
+        color: #fff;
+    }
+
+        #contact input[type="submit"]:hover {
+            background: #075e0c;
+        }
+
+#contact_ .form-control {
+    border: 1px solid #666;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#contact_ textarea.form-control {
+    height: 100px;
+}
+
+#contact_ input[type="submit"] {
+    background: #40d2b1;
+    color: #fff;
+}
+
+    #contact_ input[type="submit"]:hover {
+        background: #075e0c;
+    }
+
+#footer {
+    padding: 20px;
+    border-top: 1px solid rgba(50,50,50,0.35);
+}
+
+    #footer p {
+        text-align: center;
+    }
+
+    #footer a {
+        color: #fc880a;
+    }
+
+    #footer li {
+       
+    }
+/*-------折叠面板样式-----*/
+.panel-title > .small, .panel-title > .small > a, .panel-title > a, .panel-title > small, .panel-title > small > a {
+    font-size: 14px;
+}
+
+    .panel-title > .small, .panel-title > .small > a, .panel-title > a, .panel-title > small, .panel-title > small > a:hover {
+        text-decoration: none;
+        outline: none;
+    }
+/*-------标签样式-----*/
+#Mytab, #Mytab1, #Mytab2 .row {
+    margin-top: 20px;
+}
+
+@media all and (max-width: 800px) {
+    #home1 p {
+        /* font-weight: bold;*/
+        line-height: 35px;
+        padding: 0px 10px;
+        text-align: left;
+    }
+}
+/*---------阿里字体图标-------------*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot'); /* IE9*/
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 23px;
+    font-style: normal;
+    margin-right: 5px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*---------阿里字体图标-------------*/
+.pull-left {
+    margin-right: 10px;
+}
+
+.pull-right {
+    margin-left: 10px;
+}
+
+@media screen and (min-width: 1200px) {
+    /*如果使用者之視窗寬度 >= 1200px，將會再載入這裡的 CSS。  */
+    #right {
+        border-left: 1px dotted #ccc;
+    }
+
+    .breadcrumb {
+        background: #fff;
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+
+   
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+    /* 如果使用者之視窗寬度介於 768px ~ 979px，將會再載入這裡的 CSS。  */
+    #right {
+        border-left: 1px dotted #ccc;
+    }
+
+    .breadcrumb {
+        background: #fff;
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+
+    
+}
+
+@media screen and (max-width: 767px) {
+    /* 如果使用者之視窗寬度 <= 768px，將會再載入這裡的 CSS。  */
+   
+}
+
+@media screen and (max-device-width: 480px) {
+    /* 如果使用者之裝置寬度 <= 480px，將會再載入這裡的 CSS。 */
+  
+}

@@ -1,0 +1,30 @@
+﻿
+
+<div class="well"><h5>管理产品类别</h5><button type="button" class="btn btn-default" onclick="Open_ModalAdminProductsSortAdd()">增加产品一级类别</button></div>
+<div id="ProductsSortList">
+     @Html.Action("ProductsSortList")
+    
+</div>
+     @Html.Partial("AdminProductsSortAdd")
+
+    <script type="text/javascript">
+         function Open_ModalAdminProductsSortAdd() {
+             $('#myModal_ProductsSortAdd').modal('show')
+         }
+    </script>
+    @*<script type="text/javascript">
+            var data;
+            $(document).ready(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: "AdminProduct/ProductsSortList",
+
+                    success: function (msg) {
+                        console.log(msg);
+                    }
+                });
+
+            })
+        </script>*@
+

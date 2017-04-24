@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Model.ViewModel.ProductsSort>
+@foreach (var g in Model)
+{
+    <li>
+        @Html.ActionLink(@g.ProductsSortName, "Index", "ProductsSort", new { id = @g.ProductsSortID }, new { })
+</li>
+}
+

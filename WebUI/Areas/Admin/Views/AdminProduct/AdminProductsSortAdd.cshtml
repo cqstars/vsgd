@@ -1,0 +1,42 @@
+﻿@model Model.ViewModel.AdminProductsSortAdd
+<div class="modal fade" id="myModal_ProductsSortAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title" id="myModalLabel_ProductsSortAdd"><span class="glyphicon glyphicon-plus text-danger"></span>添加产品一级分类</h5>
+            </div>
+            <div class="modal-body">
+                @using (Ajax.BeginForm("ProductsSortAdd", "AdminProduct", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success",
+        LoadingElementId = "Waiting"
+    }))
+                {
+                    <div class="form-group">
+                        <label for="addname">产品一级分类:</label>
+                        @Html.TextBoxFor(u => u.ProductsSortName, new { Value = "请输入产品大类名", @class = "form-control" })<span class="bg-danger">@Html.ValidationMessageFor(u => u.ProductsSortName)</span>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <span class="text-danger" style="display:none">输入产品一级分类不能为空</span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    function Success(e) {
+        if (e == "ok") {
+            $("#ProductsSortList").load("AdminProduct/ProductsSortList");
+        }
+    }
+</script>

@@ -1,0 +1,17 @@
+﻿
+<div class="row" style="margin-top:2px;">
+    <div class="col-md-4">
+
+        <div class="list-group">
+            @Ajax.ActionLink("产品分类设置", "ProductsSortSetup", "AdminProduct", new { }, new AjaxOptions() { UpdateTargetId = "AdProduct", HttpMethod = "Post" }, new { @class = "list-group-item" })
+           
+            <a href="#" class="list-group-item">产品检查</a>
+            <a href="#" class="list-group-item">产品增加</a>
+            <a href="#" class="list-group-item">产品删除</a>
+            <a href="#" class="list-group-item">产品修改</a>
+        </div>
+    </div>
+    <div class="col-md-8" >
+        <div id="AdProduct"></div>
+    </div>
+</div>

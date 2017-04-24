@@ -1,0 +1,63 @@
+﻿
+
+<select name="ModifyProductsSort" id="ModifyProductsSort">
+    <option value="0" selected="selected">产品一级分类</option>
+</select>
+<select name="ModifyGoodSort" id="ModifyGoodSort">
+    <option value="0" selected="selected">产品二级分类</option>
+</select>
+
+<script type="text/javascript">
+    function escape2Html(str) {
+        var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
+        return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
+    }
+    //下拉框联动js
+    var a = '@ViewData["ModifyDrplist"]';
+    j = escape2Html(a);
+    
+    var obj = $.parseJSON(j);
+   
+    $(document).ready(init);
+
+    function init() {
+
+
+        $.each(obj, function (index, val) {
+            $("<option value='" + val.ProductsSortID + "'>" + val.ProductsSortName + "</option>").appendTo($("#ModifyProductsSort"))//动态添加Option子项
+
+        });
+
+        $("select[name='ModifyProductsSort']").change(function () {
+            var selectedPortsSort = $(this).val();
+
+            if (selectedPortsSort == 0)
+            {
+                $("select[name='ModifyGoodSort']").innerHTML = "";
+                $("select[name='ModifyGoodSort']").html('<option value="产品二级分类" selected="selected">产品二级分类</option>');
+            }//清空二级下拉框
+            else {
+                document.getElementById("ModifyGoodSort").innerHTML = "";
+
+                ShowCityWithSelectedGoodSort(selectedPortsSort);
+            }
+        });
+    }
+
+    function ShowCityWithSelectedGoodSort(selectedPortsSort) {
+
+        $.each(obj, function (index, val) {
+
+            if (val.ProductsSortID == selectedPortsSort)
+            {
+
+                $.each(val.nodes, function (i, v)
+                {
+                    $("<option value='" + v.GoodsSortID + "'>" + v.GoodsSortName + "</option>").appendTo($("select[name='ModifyGoodSort']"))
+
+                })
+            }
+
+         });
+       }
+</script>

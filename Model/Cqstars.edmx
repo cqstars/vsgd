@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cqstarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DepartMent">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartMentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Name="GoodsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RentPrice" Type="money" />
+          <Property Name="SalePrice" Type="money" />
+          <Property Name="PurchasePrice" Type="money" />
+          <Property Name="GoodsSortID" Type="int" />
+          <Property Name="ProductsSortID" Type="int" />
+          <Property Name="StockQuntity" Type="int" />
+          <Property Name="Quntity" Type="int" />
+          <Property Name="Multiple" Type="int" />
+          <Property Name="StockUnite" Type="nvarchar" MaxLength="10" />
+          <Property Name="MeasureUnite" Type="nvarchar" MaxLength="10" />
+          <Property Name="GoodsPic" Type="nvarchar" MaxLength="500" />
+          <Property Name="GoodsBrife" Type="nvarchar(max)" />
+          <Property Name="Features" Type="nvarchar(max)" />
+          <Property Name="Specifications" Type="nvarchar(max)" />
+          <Property Name="Supplies" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GoodsSort">
+          <Key>
+            <PropertyRef Name="GoodsSortId" />
+          </Key>
+          <Property Name="GoodsSortId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsSortName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProductsSortID" Type="int" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Parent" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ControllerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormMethod" Type="int" />
+          <Property Name="OperationType" Type="nchar" MaxLength="10" />
+          <Property Name="Ico" Type="nvarchar" MaxLength="50" />
+          <Property Name="PerMissionOrder" Type="int" />
+          <Property Name="IsLink" Type="bit" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsShow" Type="bit" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductsSort">
+          <Key>
+            <PropertyRef Name="ProductsSortID" />
+          </Key>
+          <Property Name="ProductsSortID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductsSortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductsSortLogo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductsSortBrife" Type="nvarchar(max)" />
+          <Property Name="ProductsSortWeb" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RolePermissions">
+          <Key>
+            <PropertyRef Name="RolePerMissionID" />
+          </Key>
+          <Property Name="RolePerMissionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="PermissionID" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="DepartMentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="DeptmentID" Type="int" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsShow" Type="bit" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserDB">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="20" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="20" />
+          <Property Name="College" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDay" Type="datetime" />
+          <Property Name="Telphone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Img" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rights" Type="int" />
+          <Property Name="Brief" Type="nvarchar" MaxLength="50" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Film" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nchar" MaxLength="10" />
+          <Property Name="PosterNumber" Type="int" />
+          <Property Name="RegTime" Type="datetime" />
+          <Property Name="IsForumClass" Type="nchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VipUserPermission">
+          <Key>
+            <PropertyRef Name="VipID" />
+          </Key>
+          <Property Name="VipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VipUserID" Type="int" />
+          <Property Name="VipPerMissionID" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Goods_GoodsSort">
+          <End Role="GoodsSort" Type="Self.GoodsSort" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsSort">
+              <PropertyRef Name="GoodsSortId" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_ProductsSort">
+          <End Role="ProductsSort" Type="Self.ProductsSort" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="ProductsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoodsSort_ProductsSort">
+          <End Role="ProductsSort" Type="Self.ProductsSort" Multiplicity="0..1" />
+          <End Role="GoodsSort" Type="Self.GoodsSort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Principal>
+            <Dependent Role="GoodsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermissions_DepartMent">
+          <End Role="DepartMent" Type="Self.DepartMent" Multiplicity="0..1" />
+          <End Role="RolePermissions" Type="Self.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartMent">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="DepartMentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermissions_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="RolePermissions" Type="Self.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDB_DepartMent">
+          <End Role="DepartMent" Type="Self.DepartMent" Multiplicity="0..1" />
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartMent">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="UserDB">
+              <PropertyRef Name="DepartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDB_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="1" />
+          <End Role="UserDB1" Type="Self.UserDB" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDB1">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VipUserPermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="VipUserPermission" Type="Self.VipUserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="VipUserPermission">
+              <PropertyRef Name="VipPerMissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VipUserPermission_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="0..1" />
+          <End Role="VipUserPermission" Type="Self.VipUserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="VipUserPermission">
+              <PropertyRef Name="VipUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cqstarsModelStoreContainer">
+          <EntitySet Name="DepartMent" EntityType="Self.DepartMent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodsSort" EntityType="Self.GoodsSort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsSort" EntityType="Self.ProductsSort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePermissions" EntityType="Self.RolePermissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDB" EntityType="Self.UserDB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VipUserPermission" EntityType="Self.VipUserPermission" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Goods_GoodsSort" Association="Self.FK_Goods_GoodsSort">
+            <End Role="GoodsSort" EntitySet="GoodsSort" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_ProductsSort" Association="Self.FK_Goods_ProductsSort">
+            <End Role="ProductsSort" EntitySet="ProductsSort" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoodsSort_ProductsSort" Association="Self.FK_GoodsSort_ProductsSort">
+            <End Role="ProductsSort" EntitySet="ProductsSort" />
+            <End Role="GoodsSort" EntitySet="GoodsSort" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermissions_DepartMent" Association="Self.FK_RolePermissions_DepartMent">
+            <End Role="DepartMent" EntitySet="DepartMent" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermissions_Permission" Association="Self.FK_RolePermissions_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDB_DepartMent" Association="Self.FK_UserDB_DepartMent">
+            <End Role="DepartMent" EntitySet="DepartMent" />
+            <End Role="UserDB" EntitySet="UserDB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDB_UserDB" Association="Self.FK_UserDB_UserDB">
+            <End Role="UserDB" EntitySet="UserDB" />
+            <End Role="UserDB1" EntitySet="UserDB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_UserDB" Association="Self.FK_UserRole_UserDB">
+            <End Role="UserDB" EntitySet="UserDB" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VipUserPermission_Permission" Association="Self.FK_VipUserPermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="VipUserPermission" EntitySet="VipUserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VipUserPermission_UserDB" Association="Self.FK_VipUserPermission_UserDB">
+            <End Role="UserDB" EntitySet="UserDB" />
+            <End Role="VipUserPermission" EntitySet="VipUserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole_Roles" Association="Self.UserRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cqstarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DepartMent">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartMentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RolePermissions" Relationship="Self.FK_RolePermissions_DepartMent" FromRole="DepartMent" ToRole="RolePermissions" />
+          <NavigationProperty Name="UserDBs" Relationship="Self.FK_UserDB_DepartMent" FromRole="DepartMent" ToRole="UserDB" />
+        </EntityType>
+        <EntityType Name="Good">
+          <Key>
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Name="GoodsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RentPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SalePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GoodsSortID" Type="Int32" />
+          <Property Name="ProductsSortID" Type="Int32" />
+          <Property Name="StockQuntity" Type="Int32" />
+          <Property Name="Quntity" Type="Int32" />
+          <Property Name="Multiple" Type="Int32" />
+          <Property Name="StockUnite" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureUnite" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsBrife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specifications" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Supplies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GoodsSort" Relationship="Self.FK_Goods_GoodsSort" FromRole="Goods" ToRole="GoodsSort" />
+          <NavigationProperty Name="ProductsSort" Relationship="Self.FK_Goods_ProductsSort" FromRole="Goods" ToRole="ProductsSort" />
+        </EntityType>
+        <EntityType Name="GoodsSort">
+          <Key>
+            <PropertyRef Name="GoodsSortId" />
+          </Key>
+          <Property Name="GoodsSortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsSortName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProductsSortID" Type="Int32" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_GoodsSort" FromRole="GoodsSort" ToRole="Goods" />
+          <NavigationProperty Name="ProductsSort" Relationship="Self.FK_GoodsSort_ProductsSort" FromRole="GoodsSort" ToRole="ProductsSort" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormMethod" Type="Int32" />
+          <Property Name="OperationType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Ico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PerMissionOrder" Type="Int32" />
+          <Property Name="IsLink" Type="Boolean" />
+          <Property Name="LinkUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsShow" Type="Boolean" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RolePermissions" Relationship="Self.FK_RolePermissions_Permission" FromRole="Permission" ToRole="RolePermissions" />
+          <NavigationProperty Name="VipUserPermissions" Relationship="Self.FK_VipUserPermission_Permission" FromRole="Permission" ToRole="VipUserPermission" />
+        </EntityType>
+        <EntityType Name="ProductsSort">
+          <Key>
+            <PropertyRef Name="ProductsSortID" />
+          </Key>
+          <Property Name="ProductsSortID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductsSortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductsSortLogo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductsSortBrife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductsSortWeb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_ProductsSort" FromRole="ProductsSort" ToRole="Goods" />
+          <NavigationProperty Name="GoodsSorts" Relationship="Self.FK_GoodsSort_ProductsSort" FromRole="ProductsSort" ToRole="GoodsSort" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="RolePerMissionID" />
+          </Key>
+          <Property Name="RolePerMissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="PermissionID" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="DepartMentID" Type="Int32" />
+          <NavigationProperty Name="DepartMent" Relationship="Self.FK_RolePermissions_DepartMent" FromRole="RolePermissions" ToRole="DepartMent" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK_RolePermissions_Permission" FromRole="RolePermissions" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DeptmentID" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsShow" Type="Boolean" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserRoles" Relationship="Self.UserRole_Roles" FromRole="Roles" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserDB">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="DateTime" Precision="3" />
+          <Property Name="Telphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rights" Type="Int32" />
+          <Property Name="Brief" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Film" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PosterNumber" Type="Int32" />
+          <Property Name="RegTime" Type="DateTime" Precision="3" />
+          <Property Name="IsForumClass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartID" Type="Int32" />
+          <NavigationProperty Name="DepartMent" Relationship="Self.FK_UserDB_DepartMent" FromRole="UserDB" ToRole="DepartMent" />
+          <NavigationProperty Name="UserDB1" Relationship="Self.FK_UserDB_UserDB" FromRole="UserDB" ToRole="UserDB1" />
+          <NavigationProperty Name="UserDB2" Relationship="Self.FK_UserDB_UserDB" FromRole="UserDB1" ToRole="UserDB" />
+          <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRole_UserDB" FromRole="UserDB" ToRole="UserRole" />
+          <NavigationProperty Name="VipUserPermissions" Relationship="Self.FK_VipUserPermission_UserDB" FromRole="UserDB" ToRole="VipUserPermission" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Role" Relationship="Self.UserRole_Roles" FromRole="UserRole" ToRole="Roles" />
+          <NavigationProperty Name="UserDB" Relationship="Self.FK_UserRole_UserDB" FromRole="UserRole" ToRole="UserDB" />
+        </EntityType>
+        <EntityType Name="VipUserPermission">
+          <Key>
+            <PropertyRef Name="VipID" />
+          </Key>
+          <Property Name="VipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VipUserID" Type="Int32" />
+          <Property Name="VipPerMissionID" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK_VipUserPermission_Permission" FromRole="VipUserPermission" ToRole="Permission" />
+          <NavigationProperty Name="UserDB" Relationship="Self.FK_VipUserPermission_UserDB" FromRole="VipUserPermission" ToRole="UserDB" />
+        </EntityType>
+        <Association Name="FK_RolePermissions_DepartMent">
+          <End Role="DepartMent" Type="Self.DepartMent" Multiplicity="0..1" />
+          <End Role="RolePermissions" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartMent">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="DepartMentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDB_DepartMent">
+          <End Role="DepartMent" Type="Self.DepartMent" Multiplicity="0..1" />
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartMent">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="UserDB">
+              <PropertyRef Name="DepartID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_GoodsSort">
+          <End Role="GoodsSort" Type="Self.GoodsSort" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsSort">
+              <PropertyRef Name="GoodsSortId" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_ProductsSort">
+          <End Role="ProductsSort" Type="Self.ProductsSort" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Good" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="ProductsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoodsSort_ProductsSort">
+          <End Role="ProductsSort" Type="Self.ProductsSort" Multiplicity="0..1" />
+          <End Role="GoodsSort" Type="Self.GoodsSort" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Principal>
+            <Dependent Role="GoodsSort">
+              <PropertyRef Name="ProductsSortID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermissions_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="RolePermissions" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VipUserPermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="VipUserPermission" Type="Self.VipUserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="VipUserPermission">
+              <PropertyRef Name="VipPerMissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDB_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="1" />
+          <End Role="UserDB1" Type="Self.UserDB" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDB1">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="0..1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VipUserPermission_UserDB">
+          <End Role="UserDB" Type="Self.UserDB" Multiplicity="0..1" />
+          <End Role="VipUserPermission" Type="Self.VipUserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="VipUserPermission">
+              <PropertyRef Name="VipUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cqstarsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DepartMents" EntityType="Self.DepartMent" />
+          <EntitySet Name="Goods" EntityType="Self.Good" />
+          <EntitySet Name="GoodsSorts" EntityType="Self.GoodsSort" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="ProductsSorts" EntityType="Self.ProductsSort" />
+          <EntitySet Name="RolePermissions" EntityType="Self.RolePermission" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserDBs" EntityType="Self.UserDB" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="VipUserPermissions" EntityType="Self.VipUserPermission" />
+          <AssociationSet Name="FK_RolePermissions_DepartMent" Association="Self.FK_RolePermissions_DepartMent">
+            <End Role="DepartMent" EntitySet="DepartMents" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDB_DepartMent" Association="Self.FK_UserDB_DepartMent">
+            <End Role="DepartMent" EntitySet="DepartMents" />
+            <End Role="UserDB" EntitySet="UserDBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_GoodsSort" Association="Self.FK_Goods_GoodsSort">
+            <End Role="GoodsSort" EntitySet="GoodsSorts" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_ProductsSort" Association="Self.FK_Goods_ProductsSort">
+            <End Role="ProductsSort" EntitySet="ProductsSorts" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoodsSort_ProductsSort" Association="Self.FK_GoodsSort_ProductsSort">
+            <End Role="ProductsSort" EntitySet="ProductsSorts" />
+            <End Role="GoodsSort" EntitySet="GoodsSorts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermissions_Permission" Association="Self.FK_RolePermissions_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VipUserPermission_Permission" Association="Self.FK_VipUserPermission_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="VipUserPermission" EntitySet="VipUserPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole_Roles" Association="Self.UserRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDB_UserDB" Association="Self.FK_UserDB_UserDB">
+            <End Role="UserDB" EntitySet="UserDBs" />
+            <End Role="UserDB1" EntitySet="UserDBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_UserDB" Association="Self.FK_UserRole_UserDB">
+            <End Role="UserDB" EntitySet="UserDBs" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VipUserPermission_UserDB" Association="Self.FK_VipUserPermission_UserDB">
+            <End Role="UserDB" EntitySet="UserDBs" />
+            <End Role="VipUserPermission" EntitySet="VipUserPermissions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cqstarsModelStoreContainer" CdmEntityContainer="cqstarsEntities">
+          <EntitySetMapping Name="DepartMents">
+            <EntityTypeMapping TypeName="cqstarsModel.DepartMent">
+              <MappingFragment StoreEntitySet="DepartMent">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepartMentName" ColumnName="DepartMentName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="cqstarsModel.Good">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="RentPrice" ColumnName="RentPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="GoodsSortID" ColumnName="GoodsSortID" />
+                <ScalarProperty Name="ProductsSortID" ColumnName="ProductsSortID" />
+                <ScalarProperty Name="StockQuntity" ColumnName="StockQuntity" />
+                <ScalarProperty Name="Quntity" ColumnName="Quntity" />
+                <ScalarProperty Name="Multiple" ColumnName="Multiple" />
+                <ScalarProperty Name="StockUnite" ColumnName="StockUnite" />
+                <ScalarProperty Name="MeasureUnite" ColumnName="MeasureUnite" />
+                <ScalarProperty Name="GoodsPic" ColumnName="GoodsPic" />
+                <ScalarProperty Name="GoodsBrife" ColumnName="GoodsBrife" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+                <ScalarProperty Name="Supplies" ColumnName="Supplies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsSorts">
+            <EntityTypeMapping TypeName="cqstarsModel.GoodsSort">
+              <MappingFragment StoreEntitySet="GoodsSort">
+                <ScalarProperty Name="GoodsSortId" ColumnName="GoodsSortId" />
+                <ScalarProperty Name="GoodsSortName" ColumnName="GoodsSortName" />
+                <ScalarProperty Name="ProductsSortID" ColumnName="ProductsSortID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="cqstarsModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="FormMethod" ColumnName="FormMethod" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="Ico" ColumnName="Ico" />
+                <ScalarProperty Name="PerMissionOrder" ColumnName="PerMissionOrder" />
+                <ScalarProperty Name="IsLink" ColumnName="IsLink" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsSorts">
+            <EntityTypeMapping TypeName="cqstarsModel.ProductsSort">
+              <MappingFragment StoreEntitySet="ProductsSort">
+                <ScalarProperty Name="ProductsSortID" ColumnName="ProductsSortID" />
+                <ScalarProperty Name="ProductsSortName" ColumnName="ProductsSortName" />
+                <ScalarProperty Name="ProductsSortLogo" ColumnName="ProductsSortLogo" />
+                <ScalarProperty Name="ProductsSortBrife" ColumnName="ProductsSortBrife" />
+                <ScalarProperty Name="ProductsSortWeb" ColumnName="ProductsSortWeb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePermissions">
+            <EntityTypeMapping TypeName="cqstarsModel.RolePermission">
+              <MappingFragment StoreEntitySet="RolePermissions">
+                <ScalarProperty Name="RolePerMissionID" ColumnName="RolePerMissionID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="DepartMentID" ColumnName="DepartMentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="cqstarsModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DeptmentID" ColumnName="DeptmentID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="cqstarsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDBs">
+            <EntityTypeMapping TypeName="cqstarsModel.UserDB">
+              <MappingFragment StoreEntitySet="UserDB">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Rights" ColumnName="Rights" />
+                <ScalarProperty Name="Brief" ColumnName="Brief" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Film" ColumnName="Film" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PosterNumber" ColumnName="PosterNumber" />
+                <ScalarProperty Name="RegTime" ColumnName="RegTime" />
+                <ScalarProperty Name="IsForumClass" ColumnName="IsForumClass" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DepartID" ColumnName="DepartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="cqstarsModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VipUserPermissions">
+            <EntityTypeMapping TypeName="cqstarsModel.VipUserPermission">
+              <MappingFragment StoreEntitySet="VipUserPermission">
+                <ScalarProperty Name="VipID" ColumnName="VipID" />
+                <ScalarProperty Name="VipUserID" ColumnName="VipUserID" />
+                <ScalarProperty Name="VipPerMissionID" ColumnName="VipPerMissionID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

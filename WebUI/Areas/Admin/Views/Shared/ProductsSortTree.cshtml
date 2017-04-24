@@ -1,0 +1,89 @@
+﻿@model List<Model.ViewModel.ProductsSort>
+
+<h6>产品二级分类管理</h6>
+<style>
+    #tree ul {
+        list-style: none;
+    }
+
+        #tree ul li {
+            cursor: pointer;
+        }
+
+            #tree ul li a {
+                /*display: block;*/
+                text-decoration: none;
+            }
+
+            #tree ul li ul {
+                display: none;
+                padding-left: 23px;
+            }
+
+
+    #tree .active {
+        /* color: red;*/
+    }
+
+    #tree .open > a {
+        color: red;
+    }
+</style>
+<div id="tree">
+    <ul class="list-group">
+
+        @foreach (var g in Model)
+        {
+            <li class="list-group-item">
+                <a><i class="iconfont text-info">&#xe68f;</i>@g.ProductsSortName</a>
+                <ul>
+                    @foreach (var g2 in g.nodes)
+                    {
+                        <li>
+                            <a><i class="iconfont text-info">&#xe68f;</i>@g2.GoodsSortName</a>
+                            <ul>
+                                @foreach (var g3 in g2.nodes)
+                                {
+                                    <li>
+
+                                        @Ajax.ActionLink(g3.GoodsName, "ModifyGoodsList", "AdminConsole", new { id = g3.GoodsID }, new AjaxOptions
+                                   {
+                                       UpdateTargetId = "GoodsList",
+                                       Confirm = "确定吗？",
+                                       HttpMethod = "Post"
+                                   })
+                                      
+                                    </li>}
+                            </ul>
+
+                        </li> }
+
+
+                </ul>
+            </li>
+
+        }
+
+    </ul>
+
+</div>
+
+<script>
+
+    $('#tree li>a').click(function (event) {
+        /* Act on the event */
+        if ($(this).parent('li').find('ul').length > 0) {
+            if ($(this).siblings('ul').is(':hidden')) {
+                $(this).parent('li').addClass('open').children('ul').show();
+                $(this).parent('li').siblings().removeClass('open').children('ul').hide();
+            } else {
+                $(this).parent('li').removeClass('open').children('ul').hide();
+            }
+        } else {
+            $(this).parent('li').siblings().removeClass('open');
+        }
+        $(this).parent('li').siblings().children('ul').hide();
+        $(this).addClass('active').parent('li').siblings('li').find('a').removeClass('active');
+    })
+
+</script>

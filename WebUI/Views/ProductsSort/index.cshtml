@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Model.ViewModel.GoodSort>
+
+@section BreadCrumb{ <ol class="breadcrumb">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品中心<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                @Html.Action("ProductsLink", "Home")
+            </ul>
+        </li>
+        <li><a href="#">@ViewBag.Title</a></li>
+
+    </ol> }
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id="ProductsSort">
+            <div class="panel-group" id="accordion">
+                @foreach (var g in Model)
+                {
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"
+                                   href="#@g.GoodsSortID">
+                                    @if (g.nodes.Count != 0)
+                                    {<span class="glyphicon glyphicon-chevron-right"></span> @g.GoodsSortName }
+                                    else
+                                    {
+                                        @g.GoodsSortName
+                                    }
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="@g.GoodsSortID" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    @foreach (var g2 in @g.nodes)
+                                    {
+                                    @*<a href="#" class="list-group-item">@g2.GoodsName</a>*@
+                                        @Ajax.ActionLink(@g2.GoodsName, "GoodsListShow", "ProductsSort", new { id = g2.GoodsID }, new AjaxOptions() { UpdateTargetId = "GoodsListShow", HttpMethod = "Post", Confirm = " 您确定要查看" + @g2.GoodsName + "的具体参数吗？" }, new { @class = "list-group-item" })
+
+                                    }
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-default" id="GoodsListShow">
+                @*@{Html.RenderAction("GoodsListShow");}*@
+            </div>
+
+        </div>
+    </div>
+
+</div>

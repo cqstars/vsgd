@@ -1,0 +1,75 @@
+﻿@model Model.ViewModel.GoodsList
+<div class="panel-heading"><h4>@Model.GoodsName<small>产品简介</small></h4></div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-4"><img src="@Model.GoodsPic" class="img-responsive" /></div>
+        <div class="col-md-8">
+            <p>
+                
+                @Model.GoodsBrife
+            </p>
+        </div>
+    </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6 col-xs-6 col-sm-6"><span>租赁价格:&nbsp;&nbsp;&nbsp;<span class="label label-danger">¥@Model.RentPrice</span></span></div>
+            <div class="col-md-6 col-xs-6 col-sm-6"><span>购买参考价价格:&nbsp;&nbsp;&nbsp;<span class="label label-success">¥@Model.SalePrice</span></span></div>
+        </div>
+    </div>
+    
+    <div class="panel-group" id="ProductProperty">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#ProductProperty" href="#collapse1">
+                        产品特征
+
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse ">
+                <div class="panel-body">
+                   @if (Model.Specifications != null) { @Html.Raw(Model.Specifications.ToString()) }
+                 
+                    
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#ProductProperty" href="#collapse2">
+                        产品规格
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                  @if (Model.Features != null)
+                  {  @Html.Raw(Model.Features.ToString())}
+                   
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#ProductProperty" href="#collapse3">
+                        耗材
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                  @if (Model.Supplies != null) {@Html.Raw(Model.Supplies.ToString()) }
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>

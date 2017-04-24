@@ -1,0 +1,174 @@
+﻿@model Model.ViewModel.GoodsList
+
+<script src="~/plugins/ckeditor/ckeditor.js"></script>
+<script src="~/plugins/ckfinder/ckfinder.js"></script>
+
+<div class="panel panel-default">
+    <div class="panel-heading">添加商品(基础信息)</div>
+    <div class="panel-body">
+        <script src="~/plugins/ckfinder/ckfinder.js"></script>
+        <script>
+            //初始化ckeditor
+            function BrowseServer2() {
+                var finder2 = new CKFinder();
+                finder2.basePath = '~/plugins/ckeditor/'; //此路径为CKFinder的安装路径，默认为 (default = "/ckfinder/").
+                finder2.selectActionFunction = SetFileField; //当选中图片时执行的函数
+                finder2.popup();//调用窗口
+            }
+            //文件选中时执行
+            //fileUrl所选中文件的路径
+            function SetFileField(fileUrl) {
+                $("#GoodsPic").val(fileUrl);
+                $("#Uploadimg2").attr("src", "" + fileUrl + "");
+                // document.getElementById('xFilePath').value = fileUrl;
+                //用ajax将xFilesPath2的值写入数据库
+            }
+        </script>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">上传产品封面图片</div>
+            <div class="panel-body">
+                <div class="thumbnail">
+                    <img id="Uploadimg2" src="@Model.GoodsPic">
+                    <div class="caption text-center">
+                        @*<input type="text" id="xFilePath2" name="xFilePath" />*@
+                        <button class="btn btn-default" onclick="BrowseServer2()">选择文件</button>
+                    </div>
+                </div>
+                @using (Ajax.BeginForm("ModifyGoods", "AdminConsole", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success",
+        LoadingElementId = "Waiting"
+    }, new { @class = "form-horizontal", @role = "form" }))
+                {
+
+
+                    <div class="form-group">
+                        <label for="GoodName">产品名：</label>
+                        @Html.TextBoxFor(model => model.GoodsPic, "", new { @type = "hidden" })
+                        @Html.TextBoxFor(model => model.GoodsID, "", new { @type = "hidden" })
+                        <input type="hidden" name="xFilePath" />
+                        @Html.TextBoxFor(model => model.GoodsName, new { @class = "form-control" })
+
+
+                    </div>
+                    <div class="form-group">
+
+                        @Html.DropDownListFor(m => m.ProductsSortID, ViewData["ProductsSortDrop"] as IEnumerable<SelectListItem>)
+                        @Html.DropDownListFor(m => m.GoodsSortID, ViewData["GoodsSortDrop"] as IEnumerable<SelectListItem>)
+                    </div>
+                    <div class="form-group">
+                        <label for="saleprice">产品销售价格</label>
+                        @Html.TextBoxFor(model => model.SalePrice, new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="rentprice">产品租赁价格</label>
+                        @Html.TextBoxFor(model => model.RentPrice, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="GoodBrife">产品简介</label>
+                        @Html.TextAreaFor(model => model.GoodsBrife, 10, 50, new { @class = "form-control" })
+
+                    </div>
+                    <button type="submit" class="btn btn-default">提交</button>
+                }
+                   
+                
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="well">
+    @using (Ajax.BeginForm("ModifyGoodsSpecifications", "AdminConsole", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success",
+        LoadingElementId = "Waiting"
+    }, new { @class = "form-horizontal", @role = "form" }))
+    {
+        <div class="form-group">
+            <label for="Specifications">特性</label>
+            @Html.TextBoxFor(model => model.GoodsID, "", new { @type = "hidden" })
+            @Html.TextAreaFor(m => m.Specifications, 10, 50, new { @name = "ckEditor1" })
+        </div>
+
+        @*@Html.TextArea("post_content", "输入", new {@name = "ckEditor1" })*@
+        <button type="submit" class="btn btn-default">提交</button>
+    }
+</div>
+<div class="well">@using (Ajax.BeginForm("ModifyGoodsFeatures", "AdminConsole", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success",
+        LoadingElementId = "Waiting"
+    }, new { @class = "form-horizontal", @role = "form" }))
+{
+    <div class="form-group">
+        <label for="Features">规格</label>
+        @Html.TextBoxFor(model => model.GoodsID, "", new { @type = "hidden" })
+        @Html.TextAreaFor(m => m.Features, 10, 50, new { @name = "ckEditor2" })
+    </div>
+
+    @*@Html.TextArea("post_content", "输入", new {@name = "ckEditor1" })*@
+    <button type="submit" class="btn btn-default">提交</button>
+}</div>
+
+<div class="well">
+    @using (Ajax.BeginForm("ModifyGoodsSupplies", "AdminConsole", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        OnSuccess = "Success",
+        LoadingElementId = "Waiting"
+    }, new { @class = "form-horizontal", @role = "form" }))
+    {
+        <div class="form-group">
+            <label for="Features">配件与耗材</label>
+            @Html.TextBoxFor(model => model.GoodsID, "", new { @type = "hidden" })
+            @Html.TextAreaFor(m => m.Supplies, 10, 50, new { @name = "ckEditor3" })
+        </div>
+
+        @*@Html.TextArea("post_content", "输入", new {@name = "ckEditor1" })*@
+        <button type="submit" class="btn btn-default">提交</button>
+    }
+</div>
+<script type="text/javascript">
+    var editor = CKEDITOR.replace('Specifications');          // 创建编辑器
+    CKFinder.setupCKEditor(editor, '/PlugIns/ckfinder/');   // 为编辑器绑定"上传控件"
+    var editor2 = CKEDITOR.replace('Features');          // 创建编辑器
+    CKFinder.setupCKEditor(editor2, '/PlugIns/ckfinder/');   // 为编辑器绑定"上传控件"
+    var editor3 = CKEDITOR.replace('Supplies');          // 创建编辑器
+    CKFinder.setupCKEditor(editor3, '/PlugIns/ckfinder/');   // 为编辑器绑定"上传控件"
+</script>
+<script type="text/javascript">
+    function Success() { alert("修改成功"); }
+    $(document).ready(init);
+
+    function init() {
+        $("select[name='ProductsSortID']").change(function () {
+            document.getElementById("GoodsSortID").innerHTML = "";
+            var selectedProvince = $(this).val();
+            ShowCityWithSelectedProvince(selectedProvince);
+        });
+    }
+
+    function ShowCityWithSelectedProvince(province) {
+
+        $.ajax({
+            url: "@Url.Action("GoodsSortDrp", "AdminConsole")",
+            data: { ProductsSortId: province },
+            success: function (data) {
+
+                console.log(data);
+                $.each(data, function (i, v) {
+
+                    $("<option value='" + v.Value + "'>" + v.Text + "</option>").appendTo($("select[name='GoodsSortID']"))
+
+                })
+            }
+        });
+    }
+</script>

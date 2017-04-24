@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "公司简介";
+}
+
+@section BreadCrumb{ <ol class="breadcrumb">
+        <li>
+            网站主页
+        </li>
+        <li><a href="#">@ViewBag.Title</a></li>
+
+    </ol> }
+
+
+<div class="container">
+
+   <div class="row">
+       <div class="col-md-4">
+           <div class="panel panel-default">
+               <div class="panel-body" style="padding:1px;">
+                  @Html.Partial("Company_Carousel")
+               </div>
+               <div class="panel-footer">
+                   
+                   <img src="~/Images/logo/logo_Title.png" /></div>
+           </div>
+       </div>
+       <div class="col-md-8">
+           <div class="panel panel-default">
+               <div class="panel-heading">重庆高登办公设备有限公司</div>
+               <div class="panel-body">
+                   <p>
+                       重庆从事OA销售与服务的专业性行销公司
+                       我们的愿景追求-----永续经营。
+                       我们同心协力；以务实与创新。实现同仁乐意，顾客满意，经营得意，共创追求永续经营。 高登经营以人为中心。实现同仁乐意，就是要创造一个让员工学习成长、快乐工作的坏境。使员工同企业一起成长，分享成果，实现顾客满意，有赖全体员工辛勤的付出汇聚而成的。 在服务的过程中，顾客对我们有许多的期望。只要我们能以热忱的心及精致的服务，发挥团队的力量，相信必能超越顾客的期望，获得顾客最大的信赖。而不断的创造顾客、累积顾客，从而成长茁壮，迈向永续。要实现经营得意，我们唯有时时刻刻脚踏实地，才能使高登迈向永续。
+                       重庆高登办公设备有限公司 以顾客满意为宗旨。致力为客户提供复印机、打印机、传真机、投影机、考勤机等系列办公自动化的解决方案。公司以精湛的维修技术，完善的服务，合理的价格取胜市场，我们会以“热情，优质，快捷”的服务来满足客户的需求。公司长期备有各种档次，各种性能的复印机，打印机供广大客户选择租用。自公司成立以来本着服务第一，客户至上的宗旨赢得了广大客户的信赖和支持，使我们的业务得到迅速发展。
+                   </p>
+                   <img src="~/Images/blend.jpg" class="img-responsive center-block" />
+               </div>
+           </div>
+           <div class="panel panel-warning">
+               <div class="panel-heading">京瓷、美能达、震旦全线产品</div>
+               <div class="panel-body">
+                   @RenderPage("~/Views/Shared/Adv_special.cshtml")
+               </div>
+           </div>
+           
+       </div>
+   </div>
+    
+
+    
+</div>

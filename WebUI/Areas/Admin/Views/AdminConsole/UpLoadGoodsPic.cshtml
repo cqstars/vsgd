@@ -1,0 +1,30 @@
+﻿<script src="~/plugins/ckfinder/ckfinder.js"></script>
+    <script>
+        //初始化ckeditor
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.basePath = '~/plugins/ckeditor/'; //此路径为CKFinder的安装路径，默认为 (default = "/ckfinder/").
+            finder.selectActionFunction = SetFileField; //当选中图片时执行的函数
+            finder.popup();//调用窗口
+        }
+        //文件选中时执行
+        //fileUrl所选中文件的路径
+        function SetFileField(fileUrl) {
+            $("#xFilePath").val(fileUrl);
+            $("#Uploadimg").attr("src", "" + fileUrl + "");
+            // document.getElementById('xFilePath').value = fileUrl;
+        }
+    </script>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">上传产品封面图片</div>
+        <div class="panel-body">
+            <div class="thumbnail">
+                <img id="Uploadimg">
+                <div class="caption text-center">
+                    <input type="text" id="xFilePath" name="xFilePath" />
+                    <button class="btn btn-default" onclick="BrowseServer()">选择文件</button>
+                </div>
+            </div>
+        </div>
+    </div>
