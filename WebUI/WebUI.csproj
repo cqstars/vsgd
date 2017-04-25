@@ -380,6 +380,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Images\adv.jpg" />
     <Content Include="Images\logo\logo.jpg" />
     <Content Include="Images\logo\logo.png" />
     <Content Include="Images\upload\files\005z4RL1tw1en0t1l394tg306k04xx0w.gif" />
