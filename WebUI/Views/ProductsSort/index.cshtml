@@ -37,8 +37,8 @@
                                     @foreach (var g2 in @g.nodes)
                                     {
                                     @*<a href="#" class="list-group-item">@g2.GoodsName</a>*@
-                                        @Ajax.ActionLink(@g2.GoodsName, "GoodsListShow", "ProductsSort", new { id = g2.GoodsID }, new AjaxOptions() { UpdateTargetId = "GoodsListShow", HttpMethod = "Post", Confirm = " 您确定要查看" + @g2.GoodsName + "的具体参数吗？" }, new { @class = "list-group-item" })
-
+                                        @*@Ajax.ActionLink(@g2.GoodsName, "GoodsListShow", "ProductsSort", new { id = g2.GoodsID }, new AjaxOptions() { UpdateTargetId = "GoodsListShow", HttpMethod = "Post", Confirm = " 您确定要查看" + @g2.GoodsName + "的具体参数吗？" }, new { @class = "list-group-item" })*@
+                                        @Html.ActionLink(@g2.GoodsName, "GoodlistShowList_Direct", "ProductsSort", new { id = g2.GoodsID }, new { @class = "list-group-item" })
                                     }
 
 

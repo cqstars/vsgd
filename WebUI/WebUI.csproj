@@ -382,6 +382,38 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Images\logo\logo.jpg" />
     <Content Include="Images\logo\logo.png" />
+    <Content Include="Images\upload\files\005z4RL1tw1en0t1l394tg306k04xx0w.gif" />
+    <Content Include="Images\upload\files\130.jpg" />
+    <Content Include="Images\upload\files\adc265.jpg" />
+    <Content Include="Images\upload\files\fullsizerender.jpg" />
+    <Content Include="Images\upload\files\Out_air_condition.jpg" />
+    <Content Include="Images\upload\files\psu.jpg" />
+    <Content Include="Images\upload\files\taskalfa306ci356ci406ci.gif" />
+    <Content Include="Images\upload\files\TASKalfa551ci.jpg" />
+    <Content Include="Images\upload\files\taskalfa6551ci7551ci.jpg" />
+    <Content Include="Images\upload\files\封面.jpg" />
+    <Content Include="Images\upload\files\高登办公_alpha_www_shufami_com.png" />
+    <Content Include="Images\upload\images\005z4RL1tw1en0t1l394tg306k04xx0w.gif" />
+    <Content Include="Images\upload\images\fullsizerender.jpg" />
+    <Content Include="Images\upload\images\Out_air_condition.jpg" />
+    <Content Include="Images\upload\images\psu.jpg" />
+    <Content Include="Images\upload\images\timg.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\005z4RL1tw1en0t1l394tg306k04xx0w.gif" />
+    <Content Include="Images\upload\_thumbs\Files\130.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\adc265.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\fullsizerender.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\Out_air_condition.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\psu.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\taskalfa306ci356ci406ci.gif" />
+    <Content Include="Images\upload\_thumbs\Files\TASKalfa551ci.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\taskalfa6551ci7551ci.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\封面.jpg" />
+    <Content Include="Images\upload\_thumbs\Files\高登办公_alpha_www_shufami_com.png" />
+    <Content Include="Images\upload\_thumbs\Images\005z4RL1tw1en0t1l394tg306k04xx0w.gif" />
+    <Content Include="Images\upload\_thumbs\Images\fullsizerender.jpg" />
+    <Content Include="Images\upload\_thumbs\Images\Out_air_condition.jpg" />
+    <Content Include="Images\upload\_thumbs\Images\psu.jpg" />
+    <Content Include="Images\upload\_thumbs\Images\timg.jpg" />
     <Content Include="mycustompage.htm" />
     <Content Include="plugins\ckeditor\adapters\jquery.js" />
     <Content Include="plugins\ckeditor\build-config.js" />
@@ -1485,6 +1517,7 @@
     <Content Include="Views\ProductsSort\products\美能达柯尼卡\magicolor 1690MF.cshtml" />
     <Content Include="Views\ProductsSort\products\美能达柯尼卡\bizhub C18（彩色）.cshtml" />
     <Content Include="Views\ProductsSort\products\美能达柯尼卡\pagepro 1550DN.cshtml" />
+    <Content Include="Views\ProductsSort\GoodlistShowList_Direct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1492,6 +1525,7 @@
     <Folder Include="Images\FactoryLogo\" />
     <Folder Include="Images\Service\" />
     <Folder Include="Images\Uploads\" />
+    <Folder Include="Images\upload\flash\" />
     <Folder Include="Images\wanted\" />
   </ItemGroup>
   <ItemGroup>

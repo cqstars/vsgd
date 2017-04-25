@@ -58,5 +58,37 @@ namespace WebUI.Con
 
         }
         #endregion
+        
+        #region 2.0--展示产品信息 GoodlistShowList_Direct(string GoodsID)
+
+        public ActionResult GoodlistShowList_Direct(int id)
+        {
+            //if (GoodsID == null || GoodsID == 0)
+            //{
+            //    GoodsID = 1;
+            //}
+
+            var GoodsList = OperateContext.Current.BLLSession.IGoodBLL.GetListBy_NoTrack(s => s.GoodsID == id).Select(s => new Model.ViewModel.GoodsList()
+            {
+                GoodsID = s.GoodsID,
+                GoodsName = s.GoodsName,
+                GoodsPic = s.GoodsPic,
+                ProductsSortID = s.ProductsSortID ?? 0,
+                GoodsSortID = s.GoodsSortID ?? 0,
+                RentPrice = (s.RentPrice ?? 0).ToString("#0.00"),
+                SalePrice = (s.SalePrice ?? 0).ToString("#0.00"),
+                GoodsBrife = s.GoodsBrife,
+                Specifications = s.Specifications,
+                Features = s.Features,
+                Supplies = s.Supplies
+
+            }).FirstOrDefault();
+            ViewBag.Title = GoodsList.GoodsName;
+
+            return View(GoodsList);
+
+
+        }
+        #endregion
     }
 }
